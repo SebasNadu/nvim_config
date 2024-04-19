@@ -2,8 +2,8 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 -- Increment/decrement
-keymap.set("n", "+", "<C-a>", { desc = "Increment number under cursor" })
-keymap.set("n", "-", "<C-x>", { desc = "Decrement number under cursor" })
+-- keymap.set("n", "+", "<C-a>", { desc = "Increment number under cursor" })
+-- keymap.set("n", "-", "<C-x>", { desc = "Decrement number under cursor" })
 -- Disable continuations
 -- keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 -- keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
@@ -53,13 +53,15 @@ keymap.set("n", "dw", 'vb"_d', { desc = "Delete a word backwards" })
 -- Select all
 keymap.set("n", "<M-a>", "gg<S-v>G", { desc = "Select all" })
 keymap.set("n", "<C-a>", "")
+
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 -- Moving text
-keymap.set("n", "<leader>k", ":m .-2<CR>==", { desc = "Move up the current line" })
-keymap.set("n", "<leader>j", ":m .+1<CR>==", { desc = "Move down the current line" })
-keymap.set("v", "J", ":m '>+2<CR>gv=gv", { desc = "Move the whole selection down" })
-keymap.set("v", "K", ":m '<-1<CR>gv=gv", { desc = "Move the whole selection up" })
+-- keymap.set("n", "<leader>k", ":m .-2<CR>==", { desc = "Move up the current line" })
+-- keymap.set("n", "<leader>j", ":m .+1<CR>==", { desc = "Move down the current line" })
+-- keymap.set("v", "J", ":m '>+2<CR>gv=gv", { desc = "Move the whole selection down" })
+-- keymap.set("v", "K", ":m '<-1<CR>gv=gv", { desc = "Move the whole selection up" })
+
 -- Insert blank line
 keymap.set("n", "<leader><CR>", "o<Esc>", { desc = "Insert blank line below in normal mode" })
 keymap.set("n", "<leader><bs>", "O<Esc>", { desc = "Insert blank line above in normal mode" })

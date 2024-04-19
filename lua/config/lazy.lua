@@ -23,10 +23,6 @@ require("lazy").setup({
 		-- Ui
 		{ import = "lazyvim.plugins.extras.ui.edgy" },
 		{ import = "lazyvim.plugins.extras.ui.mini-animate" },
-		{ import = "lazyvim.plugins.extras.util.dot" },
-		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-		{ import = "lazyvim.plugins.extras.util.project" },
-		{ import = "lazyvim.plugins.extras.vscode" },
 		-- Coding
 		{ import = "lazyvim.plugins.extras.coding.copilot" },
 		{ import = "lazyvim.plugins.extras.coding.codeium" },
@@ -34,13 +30,19 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.coding.yanky" },
 		-- DAP
 		{ import = "lazyvim.plugins.extras.dap.core" },
+		{ import = "lazyvim.plugins.extras.dap.nlua" },
 		-- Editor
+		{ import = "lazyvim.plugins.extras.editor.dial" },
+		{ import = "lazyvim.plugins.extras.editor.harpoon2" },
+		{ import = "lazyvim.plugins.extras.editor.mini-move" },
 		{ import = "lazyvim.plugins.extras.editor.navic" },
+		{ import = "lazyvim.plugins.extras.editor.trouble-v3" },
 		{ import = "lazyvim.plugins.extras.editor.aerial" },
 		-- Formatting
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
 		-- Lang
 		{ import = "lazyvim.plugins.extras.lang.clangd" },
+		{ import = "lazyvim.plugins.extras.lang.cmake" },
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
@@ -56,11 +58,14 @@ require("lazy").setup({
 		-- Test
 		{ import = "lazyvim.plugins.extras.test.core" },
 		-- Util
-		{ import = "lazyvim.plugins.extras.util.project" },
-		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 		{ import = "lazyvim.plugins.extras.util.dot" },
+		{ import = "lazyvim.plugins.extras.util.gitui" },
+		{ import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+		{ import = "lazyvim.plugins.extras.util.project" },
 		-- VSCode
 		{ import = "lazyvim.plugins.extras.vscode" },
+		-- Lazy RC
+		{ import = "lazyvim.plugins.extras.lazyrc" },
 		-- import/override with your plugins
 		{ import = "plugins" },
 		{ import = "plugins.custom" },
