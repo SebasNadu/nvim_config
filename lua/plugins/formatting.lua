@@ -1,6 +1,6 @@
 return {
 	{
-		"mfussenegger/nvim-lint",
+		"stevearc/conform.nvim",
 		optional = true,
 	},
 }

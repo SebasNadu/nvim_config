@@ -1,5 +1,9 @@
 return {
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		enabled = false,
+	},
+	{
 		"folke/noice.nvim",
 		opts = function(_, opts)
 			table.insert(opts.routes, {

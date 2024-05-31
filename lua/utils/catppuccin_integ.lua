@@ -3,35 +3,29 @@ local mocha = require("catppuccin.palettes").get_palette("mocha")
 return {
 	{
 		aerial = true,
-		-- barbecue = {
-		--   dim_dirname = true, -- directory name is dimmed by default
-		--   bold_basename = true,
-		--   dim_context = false,
-		--   alt_background = false,
-		-- },
-		bufferline = true,
+		alpha = true,
+		cmp = true,
 		dashboard = true,
 		flash = true,
 		gitsigns = true,
-		harpoon = true,
+		headlines = true,
+		illuminate = {
+			enabled = true,
+			lsp = false,
+		},
 		indent_blankline = {
 			enabled = true,
 			scope_color = mocha.pink,
 			colored_indent_levels = false,
 		},
-		markdown = true,
+		leap = true,
+		lsp_trouble = true,
 		mason = true,
+		markdown = true,
 		mini = {
 			enabled = true,
 			indentscope_color = mocha.pink,
 		},
-		neotree = true,
-		neogit = true,
-		neotest = true,
-		noice = true,
-		cmp = true,
-		dap = true,
-		dap_ui = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
@@ -52,23 +46,26 @@ return {
 		},
 		navic = {
 			enabled = true,
-			custom_bg = "NONE",
+			custom_bg = "lualine",
 		},
+		neotest = true,
+		neotree = true,
+		noice = true,
 		notify = true,
 		semantic_tokens = true,
-		treesitter_context = true,
-		treesitter = true,
-		ufo = true,
-		octo = true,
 		telescope = {
 			enabled = true,
 			-- style = "nvchad"
 		},
-		lsp_trouble = true,
-		illuminate = {
-			enabled = true,
-			lsp = false,
-		},
+		treesitter = true,
+		treesitter_context = true,
 		which_key = true,
+		bufferline = true,
+		harpoon = true,
+		neogit = true,
+		dap = true,
+		dap_ui = true,
+		ufo = true,
+		octo = true,
 	},
 }

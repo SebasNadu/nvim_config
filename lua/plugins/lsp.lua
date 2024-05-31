@@ -3,18 +3,6 @@ return {
 	{
 		"williamboman/mason.nvim",
 		optional = true,
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
-				"stylua",
-				"selene",
-				"luacheck",
-				"shellcheck",
-				"shfmt",
-				"tailwindcss-language-server",
-				"typescript-language-server",
-				"css-lsp",
-			})
-		end,
 	},
 	-- lsp servers
 	{
@@ -133,15 +121,26 @@ return {
 					},
 				},
 				clangd = {
-					-- filetypes = { "cpp", "objc", "objcpp", "cuda", "proto" },
+					-- filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 					filetypes = { "objc", "objcpp", "cuda", "proto" },
 				},
+				eslint = {},
 			},
-			-- setup = {},
+			setup = {
+				eslint = function()
+					require("lazyvim.util").lps.on_attach(function(client)
+						if client.name == "eslint" then
+							client.server_capabilities.documentFormattingProvider = true
+						elseif client.name == "tsserver" then
+							client.server_capabilities.documentFormattingProvider = false
+						end
+					end)
+				end,
+			},
 		},
 	},
-	{
-		"nvimtools/none-ls.nvim",
-		optional = true,
-	},
+	-- {
+	-- 	"nvimtools/none-ls.nvim",
+	-- 	optional = true,
+	-- },
 }
