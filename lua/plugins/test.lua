@@ -3,6 +3,6 @@ return {
   {
     "nvim-neotest/neotest",
     optional = true,
-    -- opts = { adapters = { "neotest-plenary" } },
+    opts = { adapters = { "neotest-plenary" } },
   },
 }
