@@ -7,3 +7,6 @@ foo.*
 *.log
 data
 .DS_Store
+undodir
+undodir/
+undodir/*
