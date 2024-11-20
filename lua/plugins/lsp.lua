@@ -2,7 +2,19 @@ return {
   -- tools
   {
     "williamboman/mason.nvim",
-    optional = true,
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "emmet-language-server",
+        "stylua",
+        "selene",
+        "luacheck",
+        "shellcheck",
+        "shfmt",
+        "tailwindcss-language-server",
+        "typescript-language-server",
+        "css-lsp",
+      })
+    end,
   },
   -- lsp servers
   {
@@ -121,10 +133,71 @@ return {
           },
         },
         clangd = {
-          -- filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-          filetypes = { "objc", "objcpp", "cuda", "proto" },
+          filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+          -- filetypes = { "objc", "objcpp", "cuda", "proto" },
+        },
+        emmet_ls = {
+          filetypes = {
+            "astro",
+            "css",
+            "eruby",
+            "html",
+            "javascript",
+            "javascriptreact",
+            "less",
+            "php",
+            "pug",
+            "sass",
+            "scss",
+            "typescriptreact",
+          },
+          init_options = {
+            html = {
+              options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L26
+                ["bem.enabled"] = true,
+              },
+            },
+            ---@type table<string, string>
+            includeLanguages = {},
+            --- @type string[]
+            excludeLanguages = {},
+            --- @type string[]
+            extensionsPath = {},
+            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+            preferences = {},
+            --- @type boolean Defaults to `true`
+            showAbbreviationSuggestions = true,
+            --- @type "always" | "never" Defaults to `"always"`
+            showExpandedAbbreviation = "always",
+            --- @type boolean Defaults to `false`
+            showSuggestionsAsSnippets = false,
+            --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+            syntaxProfiles = {},
+            --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+            variables = {},
+          },
         },
       },
+      setup = {},
     },
   },
+
+  -- {
+  --   "neovim/nvim-lspconfig",
+  --   opts = function()
+  --     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+  --     vim.list_extend(keys, {
+  --       {
+  --         "gd",
+  --         function()
+  --           -- DO NOT RESUSE WINDOW
+  --           require("telescope.builtin").lsp_definitions({ reuse_win = false })
+  --         end,
+  --         desc = "Goto Definition",
+  --         has = "definition",
+  --       },
+  --     })
+  --   end,
+  -- },
 }

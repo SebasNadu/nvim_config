@@ -15,6 +15,11 @@
 -- 	vim.opt.tabstop = 2 -- 2 spaces for tab width (prettier default)
 -- end
 
+vim.opt.shell = "/bin/zsh"
+
+vim.opt.cmdheight = 1 -- Command line height
+vim.opt.laststatus = 3 -- Always show status line
+vim.opt.scrolloff = 10 -- Lines of context
 vim.opt.smarttab = false -- Makes tabbing smarter will realize you have 2 vs 4
 vim.opt.expandtab = false -- Converts tabs to spaces
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
@@ -27,7 +32,6 @@ vim.opt.spell = true
 -- for auto-session plugin
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- LSP Server to use for Python.
--- Set to "basedpyright" to use basedpyright instead of pyright.
--- vim.g.lazyvim_python_lsp = "pyright"
--- vim.g.lazyvim_python_ruff = "ruff_lsp"
+vim.g.python3_host_prog = vim.fn.expand("~/.pyenv/versions/nvim-env/bin/python")
+vim.g.vimtex_view_method = "zathura"
+vim.g.vimtex_compiler_method = "latexrun"

@@ -1,58 +1,24 @@
 return {
   -- Multiple cursor support
   { "mg979/vim-visual-multi" },
-  -- Create annotations with one keybind, and jump your cursor in the inserted annotation
-  {
-    "danymat/neogen",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    cmd = "Neogen",
-    keys = {
-      {
-        "<leader>ga",
-        function()
-          require("neogen").generate({})
-        end,
-        desc = "Generate Annotations",
-      },
-    },
-    ---@param _ LazyPlugin
-    ---@param opts table
-    opts = function(_, opts)
-      local snippet_engine = nil
-
-      if vim.snippet ~= nil then
-        snippet_engine = "nvim"
-      else
-        local util = require("lazyvim.util")
-        if util.has("luasnip") then
-          snippet_engine = "luasnip"
-        elseif util.has("snippy") then
-          snippet_engine = "snippy"
-        elseif vim.g.loaded_vsnip then
-          snippet_engine = "vsnip"
-        end
-      end
-
-      opts.snippet_engine = snippet_engine
-    end,
-  },
   -- Diagnostic debugging with ChatGPT or Google
   {
     "piersolenski/wtf.nvim",
+    enabled = true,
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
     opts = {},
     keys = {
       {
-        "<leader>sD",
+        "<leader>SD",
         function()
           require("wtf").ai()
         end,
         desc = "Search Diagnostic with AI",
       },
       {
-        "<leader>sd",
+        "<leader>Sd",
         function()
           require("wtf").search()
         end,
@@ -63,6 +29,7 @@ return {
   -- LLM (Language Model) for code generation
   {
     "gsuuon/model.nvim",
+    enabled = false,
     config = function()
       require("model").setup({
         prompts = vim.tbl_extend("force", require("model.prompts.starters"), require("utils.prompt_lib")),
@@ -109,7 +76,7 @@ return {
   -- Treesitter Split/Join functionalyty for javascript
   {
     "Wansmer/treesj",
-    -- enabled = false,
+    enabled = false,
     cmd = { "TSJToggle", "TSJSplit", "TSJJoin" },
     keys = {
       { "<leader>J", "<cmd>TSJToggle<cr>", desc = "Toggle Split/Join" },

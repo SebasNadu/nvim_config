@@ -1,4 +1,5 @@
 -- https://github.com/thanhvule0310/dotfiles/blob/main/nvim/lua/v/plugins/catppuccin/palettes/carbon.lua
+--
 return {
   latte = {
     rosewater = "#da1e28",

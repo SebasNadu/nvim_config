@@ -20,12 +20,14 @@ return {
   -- Git integration with UI
   {
     "sindrets/diffview.nvim",
+    enabled = false,
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
     config = true,
   },
   --
   {
     "NeogitOrg/neogit",
+    enabled = false,
     cmd = "Neogit",
     opts = {
       integrations = { diffview = true },
@@ -33,40 +35,6 @@ return {
     },
     keys = {
       { "<leader>NG", "<cmd>Neogit kind=tab<cr>", desc = "Status" },
-    },
-  },
-  -- Github integration
-  {
-    "pwntester/octo.nvim",
-    cmd = "Octo",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("octo").setup({ enable_builtin = true })
-      vim.cmd([[hi OctoEditable guibg=none]])
-      vim.treesitter.language.register("markdown", "octo")
-    end,
-    keys = {
-      { "<leader>go", "<cmd>Octo<cr>", desc = "Octo" },
-      { "<leader>gl", "<cmd>Octo pr list<cr>", desc = "Octo pr list" },
-    },
-  },
-  -- Help you to establish good command workflow and habits for nvim
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      max_count = 3,
-      disable_mouse = false,
-      disabled_keys = {
-        ["<Up>"] = {},
-        ["<Down>"] = {},
-        ["<Left>"] = {},
-        ["<Right>"] = {},
-      },
     },
   },
   -- Speed up loading Lua modules in neovim to improve startup time
@@ -81,6 +49,7 @@ return {
   -- Simple Note Taking
   {
     "gsuuon/note.nvim",
+    enabled = false,
     config = function()
       -- local latte = require("catppuccin.palettes").get_palette("latte")
       local mocha = require("catppuccin.palettes").get_palette("mocha")
@@ -157,6 +126,7 @@ return {
   -- Auto session management
   {
     "rmagatti/auto-session",
+    enabled = false,
     config = function()
       local auto_session = require("auto-session")
 
@@ -193,6 +163,7 @@ return {
       )
     end,
   },
+  -- nvim-silicon for code screenshots
   {
     "michaelrommel/nvim-silicon",
     lazy = true,
@@ -206,6 +177,41 @@ return {
         window_title = function()
           return vim.fn.fnamemodify(vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()), ":t")
         end,
+      })
+    end,
+  },
+  {
+    "TobinPalmer/rayso.nvim",
+    cmd = "Rayso",
+    opts = {
+      base_url = "https://ray.so/", -- Default URL
+      open_cmd = "chromium", -- On MacOS, will open with open -a firefox.app. Other OS's are untested.
+      options = {
+        background = true, -- If the screenshot should have a background.
+        dark_mode = true, -- If the screenshot should be in dark mode.
+        logging_path = "", -- Path to create a log file in.
+        logging_file = "rayso", -- Name of log file, will be a markdown file, ex rayso.md.
+        logging_enabled = false, -- If you enable the logging file.
+        padding = 32, -- The default padding that the screenshot will have.
+        theme = "raindrop", -- Theme
+      },
+    },
+    keys = {
+      { "<leader>ts", ":'<,'>Rayso<cr>", desc = "Share with Rayso", mode = "v" },
+    },
+  },
+  {
+    "azratul/live-share.nvim",
+    encabed = false,
+    dependencies = {
+      "jbyuki/instant.nvim",
+    },
+    config = function()
+      vim.g.instant_username = "SebasNadu"
+      require("live-share").setup({
+        port_internal = 8765,
+        max_attempts = 40, -- 10 seconds
+        service = "nokey@localhost.run",
       })
     end,
   },

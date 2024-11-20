@@ -1,0 +1,61 @@
+local hslutil = require("solarized-osaka.hsl")
+local hsl = hslutil.hslToHex
+
+return {
+  mocha = {
+    rosewater = "#cb7985", -- From Terafox pink
+    flamingo = "#eb746b", -- Closest to the red tones in Terafox
+    pink = "#cb7985", -- From Terafox pink
+    mauve = "#ad5c7c", -- Adapted from Terafox magenta
+    red = "#e85c51", -- From Terafox red
+    maroon = "#c54e45", -- Darker red from Terafox
+    peach = "#ff8349", -- From Terafox orange
+    yellow = "#fda47f", -- From Terafox yellow
+    green = "#7aa4a1", -- From Terafox green
+    teal = "#a1cdd8", -- From Terafox cyan
+    sky = "#5a93aa", -- From Terafox blue
+    sapphire = "#49798b", -- Darker blue tone based on Terafox style
+    blue = "#5a93aa", -- From Terafox blue
+    lavender = "#b97490", -- From Terafox magenta
+    text = "#e6eaea", -- From Terafox fg1
+    subtext1 = "#cbd9d8", -- From Terafox fg2
+    subtext0 = "#587b7b", -- From Terafox fg3
+    overlay2 = "#425e5e", -- Adapted from Terafox fg3 darker tones
+    overlay1 = "#3a4d4d", -- Deeper adaptation of the darker fg
+    overlay0 = "#2e3f3f", -- Darker overlay tone
+    surface2 = "#1d3337", -- From Terafox bg2
+    surface1 = "#254147", -- From Terafox bg3
+    surface0 = "#152528", -- From Terafox bg1
+    base = "#0f1c1e", -- From Terafox bg0
+    mantle = "#0b1416", -- Darkened base tone
+    crust = "#070d0e", -- Darkest tone
+  },
+  macchiato = {
+    rosewater = "#d67ad2", -- Adapted from pink
+    flamingo = "#f4a261", -- Adapted from orange
+    pink = "#d67ad2", -- Nightfox color
+    mauve = "#9d79d6", -- Nightfox color
+    red = "#c94f6d", -- Nightfox color
+    maroon = "#a76d8a", -- Created based on name
+    peach = "#f4a261", -- Nightfox color
+    yellow = "#dbc074", -- Nightfox color
+    green = "#81b29a", -- Nightfox color
+    teal = "#63cdcf", -- Nightfox color
+    sky = "#89dceb", -- Created based on name
+    sapphire = "#5c87d7", -- Created based on name
+    blue = "#719cd6", -- Nightfox color
+    lavender = "#7a7cba", -- Created based on name
+    text = "#dfdfe0", -- Nightfox color
+    subtext1 = "#cdcecf", -- Created based on name
+    subtext0 = "#aeafb0", -- Nightfox color
+    overlay2 = "#71839b", -- Nightfox color
+    overlay1 = "#6c7086", -- Created based on name
+    overlay0 = "#585b70", -- Created based on name
+    surface2 = "#45475a", -- Created based on name
+    surface1 = "#393b44", -- Nightfox color
+    surface0 = "#313244", -- Created based on name
+    base = "#192330", -- Nightfox color
+    mantle = "#131a24", -- Nightfox color
+    crust = "#11111b", -- Created based on style
+  },
+}

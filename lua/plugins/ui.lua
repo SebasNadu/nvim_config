@@ -1,9 +1,5 @@
 return {
   {
-    "lukas-reineke/indent-blankline.nvim",
-    enabled = true,
-  },
-  {
     "folke/noice.nvim",
     opts = function(_, opts)
       table.insert(opts.routes, {
@@ -60,11 +56,7 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 5000,
-      background_colour = "#000000",
     },
-    config = function(_, opts)
-      require("notify").setup(opts)
-    end,
   },
 
   -- buffer line
@@ -124,6 +116,7 @@ return {
       opts.options.theme = "catppuccin"
     end,
   },
+
   -- Dashboard for nvim
   {
     "nvimdev/dashboard-nvim",
@@ -170,28 +163,5 @@ return {
       logo = string.rep("\n", 8) .. logo .. "\n"
       opts.config.header = vim.split(logo .. greeting .. "\n\n", "\n")
     end,
-  },
-  -- Window layout
-  {
-    "folke/edgy.nvim",
-    optional = true,
-    -- opts = function(_, opts)
-    --   local edgy_idx = Util.plugin.extra_idx("ui.edgy")
-    --   local aerial_idx = Util.plugin.extra_idx("editor.aerial")
-    --
-    --   if edgy_idx and edgy_idx > aerial_idx then
-    --     Util.warn("The `edgy.nvim` extra must be **imported** before the `aerial.nvim` extra to work properly.", {
-    --       title = "LazyVim",
-    --     })
-    --   end
-    --
-    --   opts.right = opts.right or {}
-    --   table.insert(opts.right, {
-    --     title = "Aerial",
-    --     ft = "aerial",
-    --     pinned = true,
-    --     open = "AerialOpen",
-    --   })
-    -- end,
   },
 }

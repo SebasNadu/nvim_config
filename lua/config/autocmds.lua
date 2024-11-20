@@ -2,9 +2,17 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Set conceallevel to 1 for the Obsidian UI
+-- Disable the concealing in some file formats
+-- The default conceallevel is 3 in LazyVim
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.opt.conceallevel = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
   callback = function()
     vim.opt.conceallevel = 1
   end,
@@ -23,7 +31,7 @@ vim.api.nvim_create_user_command("ToggleAutoComplete", function()
 end, {})
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "c", "cpp", "h", "hpp" },
+  pattern = { "c", "h", "cpp", "hpp" },
   callback = function()
     vim.b.autoformat = false
   end,
@@ -34,3 +42,23 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 -- 	pattern = "*",
 -- 	command = "set nopaste",
 -- })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*tmux.conf" },
+  command = "execute 'silent !tmux source <afile> --silent'",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "aerospace.toml" },
+  command = "!aerospace reload-config",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "sketchybarrc" },
+  command = "!brew services restart sketchybar",
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "bordersrc" },
+  command = "!brew services restart borders",
+})
